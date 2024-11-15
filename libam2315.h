@@ -25,6 +25,7 @@ struct env {
 	uint32_t	 i2c_speed;
 	i2c_inst_t	*i2c;
 	bool		 started;
+	bool		 c_sensor;
 };
 
 enum I2C_t {
@@ -33,16 +34,27 @@ enum I2C_t {
 };
 
 /* change to what you want */
-#define PICO_I2C0_SDA_PIN	 16
-#define PICO_I2C0_SCL_PIN	 17
+#define PICO_I2C0_SDA_PIN	 4
+#define PICO_I2C0_SCL_PIN	 5
 #define PICO_I2C1_SDA_PIN	 2
 #define PICO_I2C1_SCL_PIN	 3
 
 /* AM2315 Address */
 #define AM2315_ADDR		 0x5C
 
+/* AM2315C Address */
+#define AM2315C_ADDR		 0x38
+
 /*AM2315 Register */
 #define AM2315_REGISTER_READ	 0x03
+
+/*AM2315C Registers */
+#define AM2315C_REGISTER_INIT	 0xBE
+#define AM2315C_REGISTER_READ	 0xAC
+#define AM2315C_REGISTER_RESET	 0xBA
+
+#define AM2315C_REGISTER_BUSY	 0x80
+#define AM2315C_REGISTER_CALD	 0x08
 
 #define READ_WAIT		 5000
 

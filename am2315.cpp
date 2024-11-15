@@ -35,7 +35,8 @@ main()
 
 	config = (struct env *) malloc(sizeof(struct env *));
 
-	config->i2c_addr = AM2315_ADDR;
+	/*config->i2c_addr = AM2315_ADDR;*/
+	config->i2c_addr = AM2315C_ADDR;
 	config->i2c_channel = I2C0;
 	config->i2c_speed = 400000;
 	config->started = false;
@@ -49,6 +50,7 @@ main()
 
 	while(1) {
 		am.read_all(config);
+		printf("%.2fc, %.2f%%\n", am.temperature, am.humidity);
 		am.temperature *= 1.8;
 		am.temperature += 32;
 		printf("%.2ff, %.2f%%\n", am.temperature, am.humidity);
