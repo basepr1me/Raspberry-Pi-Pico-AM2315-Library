@@ -3,6 +3,7 @@
 Raspberry Pi Pico AM2315 Library
 
 This AM2315 library is a driver for the AM2315 Humidity and Temperature Module.
+It also supports the new replacement AM2315C.
 
 Usage
 -----
